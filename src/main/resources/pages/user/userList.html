@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>User List</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+	<div class="container">
+	    <div th:if="${not #lists.isEmpty(users)}">
+	        <h2>User List</h2>
+	        <table class="table table-striped" border="1">
+	            <tr>
+	                <th>Id</th>
+	                <th>BCIT ID</th>
+	                <th>Name</th>
+	                <th>E-mail</th>
+	                <th>Address</th>
+	                <th>Cell Phone</th>
+	            </tr>
+	            <tr th:each="user : ${users}">
+	                <td th:text="${user.uId}"></td>
+	                <td th:text="${user.bcitId}"></td>
+	                <td th:text="${user.name}"></td>
+	                <td th:text="${user.email}"></td>
+	                <td th:text="${user.address}"></td>
+	                <td th:text="${user.cellPhone}"></td>
+	                <!-- <td><a th:href="${'/product/show/' + product.id}">View</a> </td>
+	                <td><a th:href="${'/product/edit/' + product.id}">Edit</a> </td>
+	                <td><a th:href="${'/product/delete/' + product.id}" onclick="return confirm('Are you sure?')">Delete</a> </td>-->
+	            </tr>
+	        </table>
+	    </div>
+	    <div class="row">
+	        <div class="col-sm-3">
+	            <a href="/user/new">Add New User</a>
+	            <!-- <input type="button" value="Add New User" onclick=""/>-->
+	        </div>
+	    </div>
+	</div>
+</body>
+</html>
